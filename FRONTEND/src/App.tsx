@@ -1,11 +1,41 @@
-import React from 'react'
-import { Button } from './components/ui/button';
-const App = () => {
-  return (
-    <div>App
+import React, { useContext } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar.tsx';
+import Footer from "./Footer.tsx"
+import Home from './pages/Home.tsx';
+import Login from './pages/Login.tsx';
+import Signup from './pages/Signup.tsx';
+import Profile from './pages/Profile.tsx';
+import Post from './pages/Post.tsx';
+import { Navigate } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
-      <Button>Hii</Button>
+const App = () => {
+  const { userInfo } = useContext(UserContext)
+  return (
+    <div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {userInfo.id ? (
+            <Route path="/profile" element={<Profile />} />
+          ) : (
+            <Route path="/profile" element={<Navigate to="/login" />} />
+          )}
+          <Route path='login' element={<Login />} />
+          <Route path='signup' element={<Signup />} />
+          {userInfo.id ? (
+            <Route path="/post" element={<Post />} />
+          ) : (
+            <Route path="/post" element={<Navigate to="/login" />} />
+          )}
+        </Routes>
+        <Footer />
+      </Router>
+
     </div>
+
   )
 }
 
