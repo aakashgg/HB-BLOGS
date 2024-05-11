@@ -19,7 +19,7 @@ const SinglePost = () => {
     };
     useEffect(() => {
         // Fetch post from backend
-        axios.get(`http://localhost:4100/getpost/${postId}`)
+        axios.get(`https://hb-blogs-backend.vercel.app/getpost/${postId}`)
             .then(response => {
                 // Update state with fetched post
                 setPost(response.data);
