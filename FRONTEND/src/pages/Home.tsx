@@ -47,8 +47,9 @@ const Home = () => {
 
     useEffect(() => {
         // Fetch posts from backend
-        axios.get('https://hb-blogs-backend.vercel.app/getpost')
-            .then(response => {
+        axios.get('https://hb-blogs-backend.vercel.app/getpost', {
+                    withCredentials: true // Set withCredentials to true
+                }).then(response => {
                 // Update state with fetched posts
                 setPosts(response.data);
             })
