@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
     useEffect(() => {
         async function fetchProfile() {
             try {
-                const response: AxiosResponse<UserInfo> = await axios.get('http://localhost:4100/profile', {
+                const response: AxiosResponse<UserInfo> = await axios.get('https://hb-blogs-backend.vercel.app/profile', {
                     withCredentials: true
                 });
                 setUserInfo(response.data);
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post('http://localhost:4100/logout', {}, {
+            await axios.post('https://hb-blogs-backend.vercel.app/logout', {}, {
                 withCredentials: true
             });
             setUserInfo({ id: "", name: "" });
