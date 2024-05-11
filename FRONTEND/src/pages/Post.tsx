@@ -53,7 +53,7 @@ const Post = () => {
                 formDataToSend.append('image', formData.image);
             }
 
-            const response = await axios.post('http://localhost:4100/post', formDataToSend, {
+            const response = await axios.post('https://hb-blogs-backend.vercel.app/post', formDataToSend, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'

@@ -47,7 +47,7 @@ const Home = () => {
 
     useEffect(() => {
         // Fetch posts from backend
-        axios.get('http://localhost:4100/getpost')
+        axios.get('https://hb-blogs-backend.vercel.app/getpost')
             .then(response => {
                 // Update state with fetched posts
                 setPosts(response.data);
