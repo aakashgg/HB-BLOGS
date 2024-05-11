@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
                 value={searchTerm}
                 onChange={handleChange}
             />
-            <h1 className="text-lg font-bold ml-44"><Link to="/">MY BLOGS</Link></h1>
+            <h1 className="text-lg font-bold ml-44"><Link to="/">HB BLOGS</Link></h1>
             <Drawer handleLogout={handleLogout} />
         </div>
     );

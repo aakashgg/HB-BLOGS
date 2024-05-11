@@ -15,6 +15,8 @@ router.post("/signup", signup);
 router.post("/login", login);
 router.get("/profile", profile);
 router.post("/logout", logout);
+router.get("/getpost/:id", getpost);
+
 router.get("/getpost", getpost);
 router.post("/post", singleUpload, createPost);
 export default router;
