@@ -49,7 +49,9 @@ const Post = () => {
             formDataToSend.append('content', formData.content);
             formDataToSend.append('summary', formData.summary);
             formDataToSend.append('author', formData.author);
-            formDataToSend.append('image', formData.image);
+            if (formData.image !== null) {
+                formDataToSend.append('image', formData.image);
+            }
 
             const response = await axios.post('http://localhost:4100/post', formDataToSend, {
                 withCredentials: true,
