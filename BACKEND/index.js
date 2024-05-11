@@ -16,8 +16,10 @@ const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
 app.use(bodyParser.json());
-app.use(cors());
-// app.use(cors({ credentials: true, origin: 'https://hb-blogs-frontend.vercel.app/' }));
+app.use(cors({
+  origin: 'https://hb-blogs-frontend.vercel.app',
+  credentials: true
+}));
 app.use(cookieParser());
 
 // Provide the absolute path to the 'uploads' directory
