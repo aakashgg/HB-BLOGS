@@ -19,7 +19,7 @@ const SinglePost = () => {
     };
     useEffect(() => {
         // Fetch post from backend
-        axios.get(`https://hb-blogs-backend.vercel.app/getpost/${postId}`)
+        axios.get(`http://localhost:4000/getpost/${postId}`)
             .then(response => {
                 // Update state with fetched post
                 setPost(response.data);
@@ -36,7 +36,7 @@ const SinglePost = () => {
     return (
         <div className="container mx-auto mt-8">
             <div className="max-w-3xl mx-auto">
-                <img src={`http://localhost:4100/${post.image}`} alt={post.title} className="w-full h-auto" />
+                <img src={`http://localhost:4000/${post.image}`} alt={post.title} className="w-full h-auto" />
                 <h1 className="text-3xl font-bold my-4">{post.title}</h1>
                 <div className="content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                 <div className="text-gray-600 mb-4">

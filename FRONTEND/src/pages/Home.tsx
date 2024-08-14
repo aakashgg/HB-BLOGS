@@ -23,7 +23,7 @@ const MyCard: React.FC<CardData> = ({ _id, image, title, summary, author, create
                 <div className="flex"> {/* Flex container */}
                     <div className="w-1/3 "> {/* Image container */}
                         <div className="image-container" style={{ maxHeight: '200px', overflow: 'hidden' }}>
-                            <img src={`http://localhost:4100/${image}`} alt={title} className="w-full h-full object-cover" />
+                            <img src={`http://localhost:4000/${image}`} alt={title} className="w-full h-full object-cover" />
                         </div>
                     </div>
                     <div className="w-2/3 p-4"> {/* Content container */}
@@ -47,12 +47,12 @@ const Home = () => {
 
     useEffect(() => {
         // Fetch posts from backend
-        axios.get('https://hb-blogs-backend.vercel.app/getpost', {
-                    withCredentials: true // Set withCredentials to true
-                }).then(response => {
-                // Update state with fetched posts
-                setPosts(response.data);
-            })
+        axios.get('http://localhost:4000/getpost', {
+            withCredentials: true // Set withCredentials to true
+        }).then(response => {
+            // Update state with fetched posts
+            setPosts(response.data);
+        })
             .catch(error => {
                 console.error('Error fetching posts:', error);
             });

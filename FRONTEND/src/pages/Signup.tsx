@@ -26,7 +26,7 @@ const Signup: React.FC = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://hb-blogs-backend.vercel.app/signup', formData);
+            const response = await axios.post('http://localhost:4000/signup', formData);
 
             if (response.status === 201) {
                 // Signup successful

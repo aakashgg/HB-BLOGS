@@ -15,21 +15,24 @@ const app = express();
 
 dotenv.config();
 const PORT = process.env.PORT;
+const URL = process.env.MONGODB_URL;
+
 app.use(bodyParser.json());
+app.use(cookieParser());
+
+// Configure CORS to allow credentials and specify allowed origins
 app.use(cors({
-  origin: 'https://hb-blogs-frontend.vercel.app',
+  origin: 'http://localhost:5173',
   credentials: true
 }));
-app.use(cookieParser());
 
 // Provide the absolute path to the 'uploads' directory
 const uploadsDir = path.join(__dirname, 'uploads');
 app.use('/uploads', express.static(uploadsDir));
 
-const URL = process.env.MONGODB_URL;
 app.listen(PORT, () => {
-    console.log(`App Running at PORT ${PORT}`);
-    Connection(URL);
+  console.log(`App Running at PORT ${PORT}`);
+  Connection(URL);
 });
 
 app.use('/', router);

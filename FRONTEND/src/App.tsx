@@ -6,7 +6,7 @@ import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import Signup from './pages/Signup.tsx';
 import Profile from './pages/Profile.tsx';
-import SinglePost from './pages/SinglePost.tsx'; // Import SinglePostPage component
+import SinglePost from './pages/SinglePost.tsx';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from './UserContext';
 import Post from './pages/Post.tsx';
