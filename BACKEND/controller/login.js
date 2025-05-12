@@ -17,8 +17,13 @@ async function login(req, res, next) {
         }
         jwt.sign({ name: existingUser.name, id: existingUser.id }, secret, {}, (err, tokenVal) => {
             if (err) throw err;
-            // Set the cookie without the secure flag for testing purposes
-            res.cookie('token', tokenVal, { httpOnly: true });
+
+            res.cookie('token', tokenVal, {
+                httpOnly: true,
+                secure: true,                 // Required on HTTPS (Render uses HTTPS)
+                sameSite: 'None',             // Required to allow cross-origin requests with credentials
+            });
+
 
             return res.status(200).json({ message: "Logged In Success" });
         });
