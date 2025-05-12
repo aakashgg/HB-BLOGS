@@ -1,22 +1,36 @@
 import newPost from '../models/newPost.js';
+import jwt from 'jsonwebtoken';
 
+const secret = 'hjvbshdvshuvdyus';  // your JWT secret
 
 const createPost = async (req, res) => {
     try {
+        // Get the token from cookies
+        const token = req.cookies.token;
 
+        // Verify the token and extract user info
+        const decoded = jwt.verify(token, secret);
+
+        // Grab the uploaded image file
         const image = req.file;
-        const { title, summary, content, author } = req.body;
+
+        // Destructure from request body
+        const { title, summary, content } = req.body;
 
 
+
+        // Save both id and name
         const post = new newPost({
             title,
             summary,
             content,
-            author,
-            image: image?.path,
+            author: decoded.id,         // ObjectId
+            authorName: decoded.name,   // String
+            image: image?.path || null,
         });
 
-        // Save the post to the database
+
+        // Save to database
         await post.save();
 
         res.status(201).json({ message: 'Post created successfully' });

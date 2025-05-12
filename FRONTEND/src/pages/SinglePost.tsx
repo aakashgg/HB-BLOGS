@@ -7,6 +7,7 @@ interface PostData {
     title: string;
     content: string; // Use content instead of summary
     author: string;
+    authorName: string
     createdAt: string;
 }
 
@@ -40,7 +41,7 @@ const SinglePost = () => {
                 <h1 className="text-3xl font-bold my-4">{post.title}</h1>
                 <div className="content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                 <div className="text-gray-600 mb-4">
-                    <p className="font-semibold">{post.author}</p>
+                    <p className="font-semibold">{post.authorName}</p>
                     <p>{formatDate(post.createdAt)}</p>
                 </div>
             </div>

@@ -1,0 +1,14 @@
+dist/
+node_modules/ 
+.env
+
+client/node_modules/
+client/dist/
+
+frontend/node_modules/
+backend/dist/
+
+# Ignore .env files in the root and both client and backend folders
+.env
+frontend/.env
+backend/.env

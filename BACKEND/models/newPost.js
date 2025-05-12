@@ -14,11 +14,16 @@ const postSchema = mongoose.Schema({
         required: true,
     },
     author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    authorName: {
         type: String,
         required: true,
     },
     image: {
-        type: String, // Change type to String
+        type: String,
         required: true,
     },
     createdAt: {
