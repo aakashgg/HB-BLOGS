@@ -37,7 +37,7 @@ const SinglePost = () => {
     return (
         <div className="container mx-auto mt-8">
             <div className="max-w-3xl mx-auto">
-                <img src={`https://hb-blogs.onrender.com/${post.image}`} alt={post.title} className="w-full h-auto" />
+                <img src={post.image} alt={post.title} className="w-full h-auto" />
                 <h1 className="text-3xl font-bold my-4">{post.title}</h1>
                 <div className="content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                 <div className="text-gray-600 mb-4">
