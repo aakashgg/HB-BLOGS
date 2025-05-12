@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 // Configure CORS to allow credentials and specify allowed origins
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://hb-blogs-1.onrender.com',
   credentials: true
 }));
 
