@@ -52,11 +52,7 @@ const Home: React.FC<HomeProps> = ({ searchTerm }) => {
 
     const fetchPosts = async (page: number, author = '') => {
         try {
-<<<<<<< HEAD
-            const response = await axios.get(`https:/hb-blogs.onrender.com/getpost?page=${page}&author=${author}`, {
-=======
             const response = await axios.get(`https://hb-blogs.onrender.com/getpost?page=${page}&author=${author}`, {
->>>>>>> 28eff538858b0f5064789fd5e4606066cba70e0e
                 withCredentials: true,
             });
 
