@@ -59,7 +59,7 @@ const MyPosts: React.FC = () => {
 
     const fetchPosts = async (page: number) => {
         try {
-            const response = await axios.get(`http://localhost:4000/myposts?page=${page}`, {
+            const response = await axios.get(`https://hb-blogs.onrender.com/myposts?page=${page}`, {
                 withCredentials: true,
             });
 
@@ -93,7 +93,7 @@ const MyPosts: React.FC = () => {
         if (!confirmed) return;
 
         try {
-            await axios.delete(`http://localhost:4000/delete/${id}`, {
+            await axios.delete(`https://hb-blogs.onrender.com//delete/${id}`, {
                 withCredentials: true,
             });
             setPosts(prev => prev.filter(post => post._id !== id));

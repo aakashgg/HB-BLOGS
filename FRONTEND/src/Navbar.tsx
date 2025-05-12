@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSearchTerm }) => {
     useEffect(() => {
         async function fetchProfile() {
             try {
-                const response: AxiosResponse<UserInfo> = await axios.get('http://localhost:4000/profile', {
+                const response: AxiosResponse<UserInfo> = await axios.get('https://hb-blogs.onrender.com/profile', {
                     withCredentials: true
                 });
                 setUserInfo(response.data);
@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSearchTerm }) => {
 
     const handleLogout = async () => {
         try {
-            await axios.post('http://localhost:4000/logout', {}, {
+            await axios.post('https://hb-blogs.onrender.com/logout', {}, {
                 withCredentials: true
             });
             if (userInfo)

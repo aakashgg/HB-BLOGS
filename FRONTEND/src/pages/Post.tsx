@@ -53,7 +53,7 @@ const Post = () => {
                 formDataToSend.append('image', formData.image);
             }
 
-            const response = await axios.post('http://localhost:4000/post', formDataToSend, {
+            const response = await axios.post('https://hb-blogs.onrender.com/post', formDataToSend, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'
