@@ -93,7 +93,7 @@ const MyPosts: React.FC = () => {
         if (!confirmed) return;
 
         try {
-            await axios.delete(`https://hb-blogs.onrender.com//delete/${id}`, {
+            await axios.delete(`https://hb-blogs.onrender.com/delete/${id}`, {
                 withCredentials: true,
             });
             setPosts(prev => prev.filter(post => post._id !== id));
