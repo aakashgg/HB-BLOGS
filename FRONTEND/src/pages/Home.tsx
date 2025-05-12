@@ -52,6 +52,7 @@ const Home: React.FC<HomeProps> = ({ searchTerm }) => {
 
     const fetchPosts = async (page: number, author = '') => {
         try {
+            console.log("hello")
             const response = await axios.get(`https://hb-blogs.onrender.com/getpost?page=${page}&author=${author}`, {
                 withCredentials: true,
             });

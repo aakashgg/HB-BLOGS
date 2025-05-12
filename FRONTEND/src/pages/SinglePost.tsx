@@ -20,7 +20,7 @@ const SinglePost = () => {
     };
     useEffect(() => {
         // Fetch post from backend
-        axios.get(`hhttps://hb-blogs.onrender.com/getpost/${postId}`)
+        axios.get(`https://hb-blogs.onrender.com/getpost/${postId}`, { withCredentials: true, })
             .then(response => {
                 // Update state with fetched post
                 setPost(response.data);
