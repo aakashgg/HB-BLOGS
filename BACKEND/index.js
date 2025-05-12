@@ -7,15 +7,14 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { PORTNO, MONGODB_URL } from "./middleware/config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+dotenv.config();
 const app = express();
 
-dotenv.config();
-const PORT = process.env.PORT;
-const URL = process.env.MONGODB_URL;
+
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -30,9 +29,10 @@ app.use(cors({
 const uploadsDir = path.join(__dirname, 'uploads');
 app.use('/uploads', express.static(uploadsDir));
 
-app.listen(PORT, () => {
-  console.log(`App Running at PORT ${PORT}`);
-  Connection(URL);
+app.listen(PORTNO, () => {
+  console.log(`App Running at PORT ${PORTNO}`);
+  Connection(MONGODB_URL);
 });
+
 
 app.use('/', router);

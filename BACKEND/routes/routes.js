@@ -32,4 +32,5 @@ router.get("/search", searchPosts);
 router.delete('/delete/:id', auth, DeletePost);
 router.post("/post", auth, singleUpload, createPost);
 
+
 export default router;
